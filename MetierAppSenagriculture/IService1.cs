@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using MetierAppSenagriculture.Model;
 
 namespace MetierAppSenagriculture
 {
@@ -20,6 +21,16 @@ namespace MetierAppSenagriculture
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: ajoutez vos opérations de service ici
+        [OperationContract]
+        bool addProduit(Produit produit);
+        [OperationContract]
+        bool updateProduit(Produit produit);
+        [OperationContract]
+        bool deleteProduit(int idProduit);
+        [OperationContract]
+        List<Produit> getAllProduits();
+        [OperationContract]
+        Produit getProduitById(int idProduit);
     }
 
 

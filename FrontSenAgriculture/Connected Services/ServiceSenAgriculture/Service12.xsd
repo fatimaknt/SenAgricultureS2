@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:59843/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture" />
+  <xs:import schemaLocation="http://localhost:59843/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture.Model" />
   <xs:element name="GetData">
     <xs:complexType>
       <xs:sequence>
@@ -26,6 +27,74 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture" minOccurs="0" name="GetDataUsingDataContractResult" nillable="true" type="q2:CompositeType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addProduit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture.Model" minOccurs="0" name="produit" nillable="true" type="q3:Produit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addProduitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addProduitResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateProduit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture.Model" minOccurs="0" name="produit" nillable="true" type="q4:Produit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="updateProduitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="updateProduitResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteProduit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProduit" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="deleteProduitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deleteProduitResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllProduits">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getAllProduitsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture.Model" minOccurs="0" name="getAllProduitsResult" nillable="true" type="q5:ArrayOfProduit" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProduitById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProduit" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getProduitByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture.Model" minOccurs="0" name="getProduitByIdResult" nillable="true" type="q6:Produit" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

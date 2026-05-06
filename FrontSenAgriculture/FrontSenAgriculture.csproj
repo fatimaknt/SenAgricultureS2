@@ -76,6 +76,9 @@
     <None Include="Connected Services\ServiceSenAgriculture\FrontSenAgriculture.ServiceSenAgriculture.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceSenAgriculture\FrontSenAgriculture.ServiceSenAgriculture.Produit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceSenAgriculture\Service1.wsdl" />
     <None Include="Connected Services\ServiceSenAgriculture\Service1.xsd">
       <SubType>Designer</SubType>
@@ -84,6 +87,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceSenAgriculture\Service12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceSenAgriculture\Service13.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">

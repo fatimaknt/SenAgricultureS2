@@ -8,75 +8,147 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FrontSenAgriculture.ServiceSenAgriculture {
+namespace FrontSenAgriculture.ServiceSenAgriculture
+{
     using System.Runtime.Serialization;
-    using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
         
-        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool BoolValueField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StringValueField;
         
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
                 return this.extensionDataField;
             }
-            set {
+            set
+            {
                 this.extensionDataField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
+        public bool BoolValue
+        {
+            get
+            {
                 return this.BoolValueField;
             }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
+            set
+            {
+                this.BoolValueField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
+        public string StringValue
+        {
+            get
+            {
                 return this.StringValueField;
             }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
+            set
+            {
+                this.StringValueField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Produit", Namespace="http://schemas.datacontract.org/2004/07/MetierAppSenagriculture.Model")]
+    public partial class Produit : object, System.Runtime.Serialization.IExtensibleDataObject
+    {
+        
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private string DescriptionProduitField;
+        
+        private string NomProduitField;
+        
+        private System.Nullable<float> PrixUnitaireField;
+        
+        private int idProduitField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
             }
         }
         
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DescriptionProduit
+        {
+            get
+            {
+                return this.DescriptionProduitField;
+            }
+            set
+            {
+                this.DescriptionProduitField = value;
+            }
+        }
         
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NomProduit
+        {
+            get
+            {
+                return this.NomProduitField;
+            }
+            set
+            {
+                this.NomProduitField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<float> PrixUnitaire
+        {
+            get
+            {
+                return this.PrixUnitaireField;
+            }
+            set
+            {
+                this.PrixUnitaireField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idProduit
+        {
+            get
+            {
+                return this.idProduitField;
+            }
+            set
+            {
+                this.idProduitField = value;
             }
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceSenAgriculture.IService1")]
-    public interface IService1 {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FrontSenAgriculture.ServiceSenAgriculture.IService1")]
+    public interface IService1
+    {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetData", ReplyAction="http://tempuri.org/IService1/GetDataResponse")]
         string GetData(int value);
@@ -89,49 +161,172 @@ namespace FrontSenAgriculture.ServiceSenAgriculture {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<FrontSenAgriculture.ServiceSenAgriculture.CompositeType> GetDataUsingDataContractAsync(FrontSenAgriculture.ServiceSenAgriculture.CompositeType composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addProduit", ReplyAction="http://tempuri.org/IService1/addProduitResponse")]
+        bool addProduit(FrontSenAgriculture.ServiceSenAgriculture.Produit produit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addProduit", ReplyAction="http://tempuri.org/IService1/addProduitResponse")]
+        System.Threading.Tasks.Task<bool> addProduitAsync(FrontSenAgriculture.ServiceSenAgriculture.Produit produit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/updateProduit", ReplyAction="http://tempuri.org/IService1/updateProduitResponse")]
+        bool updateProduit(FrontSenAgriculture.ServiceSenAgriculture.Produit produit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/updateProduit", ReplyAction="http://tempuri.org/IService1/updateProduitResponse")]
+        System.Threading.Tasks.Task<bool> updateProduitAsync(FrontSenAgriculture.ServiceSenAgriculture.Produit produit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/deleteProduit", ReplyAction="http://tempuri.org/IService1/deleteProduitResponse")]
+        bool deleteProduit(int idProduit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/deleteProduit", ReplyAction="http://tempuri.org/IService1/deleteProduitResponse")]
+        System.Threading.Tasks.Task<bool> deleteProduitAsync(int idProduit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAllProduits", ReplyAction="http://tempuri.org/IService1/getAllProduitsResponse")]
+        FrontSenAgriculture.ServiceSenAgriculture.Produit[] getAllProduits();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAllProduits", ReplyAction="http://tempuri.org/IService1/getAllProduitsResponse")]
+        System.Threading.Tasks.Task<FrontSenAgriculture.ServiceSenAgriculture.Produit[]> getAllProduitsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getProduitById", ReplyAction="http://tempuri.org/IService1/getProduitByIdResponse")]
+        FrontSenAgriculture.ServiceSenAgriculture.Produit getProduitById(int idProduit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getProduitById", ReplyAction="http://tempuri.org/IService1/getProduitByIdResponse")]
+        System.Threading.Tasks.Task<FrontSenAgriculture.ServiceSenAgriculture.Produit> getProduitByIdAsync(int idProduit);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/TestConnection", ReplyAction="http://tempuri.org/IService1/TestConnectionResponse")]
+        string TestConnection();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/TestConnection", ReplyAction="http://tempuri.org/IService1/TestConnectionResponse")]
+        System.Threading.Tasks.Task<string> TestConnectionAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DiagnosticDatabase", ReplyAction="http://tempuri.org/IService1/DiagnosticDatabaseResponse")]
+        string DiagnosticDatabase();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DiagnosticDatabase", ReplyAction="http://tempuri.org/IService1/DiagnosticDatabaseResponse")]
+        System.Threading.Tasks.Task<string> DiagnosticDatabaseAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : FrontSenAgriculture.ServiceSenAgriculture.IService1, System.ServiceModel.IClientChannel {
+    public interface IService1Channel : FrontSenAgriculture.ServiceSenAgriculture.IService1, System.ServiceModel.IClientChannel
+    {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<FrontSenAgriculture.ServiceSenAgriculture.IService1>, FrontSenAgriculture.ServiceSenAgriculture.IService1 {
+    public partial class Service1Client : System.ServiceModel.ClientBase<FrontSenAgriculture.ServiceSenAgriculture.IService1>, FrontSenAgriculture.ServiceSenAgriculture.IService1
+    {
         
-        public Service1Client() {
+        public Service1Client()
+        {
         }
         
         public Service1Client(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+                base(endpointConfigurationName)
+        {
         }
         
         public Service1Client(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+                base(endpointConfigurationName, remoteAddress)
+        {
         }
         
         public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+                base(endpointConfigurationName, remoteAddress)
+        {
         }
         
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+                base(binding, remoteAddress)
+        {
         }
         
-        public string GetData(int value) {
+        public string GetData(int value)
+        {
             return base.Channel.GetData(value);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
+        public System.Threading.Tasks.Task<string> GetDataAsync(int value)
+        {
             return base.Channel.GetDataAsync(value);
         }
         
-        public FrontSenAgriculture.ServiceSenAgriculture.CompositeType GetDataUsingDataContract(FrontSenAgriculture.ServiceSenAgriculture.CompositeType composite) {
+        public FrontSenAgriculture.ServiceSenAgriculture.CompositeType GetDataUsingDataContract(FrontSenAgriculture.ServiceSenAgriculture.CompositeType composite)
+        {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<FrontSenAgriculture.ServiceSenAgriculture.CompositeType> GetDataUsingDataContractAsync(FrontSenAgriculture.ServiceSenAgriculture.CompositeType composite) {
+        public System.Threading.Tasks.Task<FrontSenAgriculture.ServiceSenAgriculture.CompositeType> GetDataUsingDataContractAsync(FrontSenAgriculture.ServiceSenAgriculture.CompositeType composite)
+        {
             return base.Channel.GetDataUsingDataContractAsync(composite);
+        }
+        
+        public bool addProduit(FrontSenAgriculture.ServiceSenAgriculture.Produit produit)
+        {
+            return base.Channel.addProduit(produit);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addProduitAsync(FrontSenAgriculture.ServiceSenAgriculture.Produit produit)
+        {
+            return base.Channel.addProduitAsync(produit);
+        }
+        
+        public bool updateProduit(FrontSenAgriculture.ServiceSenAgriculture.Produit produit)
+        {
+            return base.Channel.updateProduit(produit);
+        }
+        
+        public System.Threading.Tasks.Task<bool> updateProduitAsync(FrontSenAgriculture.ServiceSenAgriculture.Produit produit)
+        {
+            return base.Channel.updateProduitAsync(produit);
+        }
+        
+        public bool deleteProduit(int idProduit)
+        {
+            return base.Channel.deleteProduit(idProduit);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteProduitAsync(int idProduit)
+        {
+            return base.Channel.deleteProduitAsync(idProduit);
+        }
+        
+        public FrontSenAgriculture.ServiceSenAgriculture.Produit[] getAllProduits()
+        {
+            return base.Channel.getAllProduits();
+        }
+        
+        public System.Threading.Tasks.Task<FrontSenAgriculture.ServiceSenAgriculture.Produit[]> getAllProduitsAsync()
+        {
+            return base.Channel.getAllProduitsAsync();
+        }
+        
+        public FrontSenAgriculture.ServiceSenAgriculture.Produit getProduitById(int idProduit)
+        {
+            return base.Channel.getProduitById(idProduit);
+        }
+        
+        public System.Threading.Tasks.Task<FrontSenAgriculture.ServiceSenAgriculture.Produit> getProduitByIdAsync(int idProduit)
+        {
+            return base.Channel.getProduitByIdAsync(idProduit);
+        }
+        
+        public string TestConnection()
+        {
+            return base.Channel.TestConnection();
+        }
+        
+        public System.Threading.Tasks.Task<string> TestConnectionAsync()
+        {
+            return base.Channel.TestConnectionAsync();
+        }
+        
+        public string DiagnosticDatabase()
+        {
+            return base.Channel.DiagnosticDatabase();
+        }
+        
+        public System.Threading.Tasks.Task<string> DiagnosticDatabaseAsync()
+        {
+            return base.Channel.DiagnosticDatabaseAsync();
         }
     }
 }
