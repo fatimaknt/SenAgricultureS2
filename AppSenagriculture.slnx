@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="FrontSenAgriculture/FrontSenAgriculture.csproj">
+    <BuildDependency Project="MetierAppSenagriculture/MetierAppSenagriculture.csproj" />
+  </Project>
+  <Project Path="MetierAppSenagriculture/MetierAppSenagriculture.csproj" />
+</Solution>
