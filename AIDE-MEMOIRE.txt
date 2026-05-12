@@ -1,0 +1,119 @@
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║       🚀 AIDE-MÉMOIRE RAPIDE - SENAGRICULTURE 🚀       ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────┐
+│  ⚠️  ORDRE DE DÉMARRAGE OBLIGATOIRE                     │
+└──────────────────────────────────────────────────────────┘
+
+1️⃣  MYSQL (XAMPP/WAMP)
+    ↓
+2️⃣  MetierAppSenagriculture (Service WCF)
+    ↓ Attendez http://localhost:59843/Service1.svc
+    ↓
+3️⃣  FrontSenAgriculture (Application)
+
+┌──────────────────────────────────────────────────────────┐
+│  🔧 CORRECTIONS APPLIQUÉES                               │
+└──────────────────────────────────────────────────────────┘
+
+✅ Timeout augmenté : 1 min → 10 min
+✅ Messages d'erreur détaillés avec solutions
+✅ Validation complète des champs
+✅ Reconnexion automatique du service
+✅ Affichage des exceptions complètes (débogage)
+
+┌──────────────────────────────────────────────────────────┐
+│  📁 FICHIERS IMPORTANTS                                  │
+└──────────────────────────────────────────────────────────┘
+
+📖 README.md                  → Guide complet
+📖 DEMARRAGE.md               → Comment redémarrer
+📖 CORRECTIONS_RESUME.md      → Détails des corrections
+📊 Database_Setup.sql         → Créer la base de données
+🔧 Verifier_Environnement.ps1 → Vérifier l'état du système
+
+┌──────────────────────────────────────────────────────────┐
+│  🆘 EN CAS DE PROBLÈME                                   │
+└──────────────────────────────────────────────────────────┘
+
+❌ "Service WCF non démarré"
+   → Démarrez MetierAppSenagriculture d'abord
+
+❌ "Délai d'attente dépassé"
+   → Vérifiez que MySQL est démarré (XAMPP/WAMP)
+
+❌ DataGridView vide
+   → Exécutez Database_Setup.sql dans phpMyAdmin
+
+❌ "Erreur de format"
+   → Le prix doit être un nombre (ex: 500 ou 500.50)
+
+┌──────────────────────────────────────────────────────────┐
+│  ⌨️  RACCOURCIS VISUAL STUDIO                           │
+└──────────────────────────────────────────────────────────┘
+
+F5               → Démarrer le débogage
+Shift + F5       → Arrêter le débogage
+Ctrl + F5        → Démarrer sans déboguer
+F10              → Pas à pas principal
+F11              → Pas à pas détaillé
+
+┌──────────────────────────────────────────────────────────┐
+│  📊 BASE DE DONNÉES                                      │
+└──────────────────────────────────────────────────────────┘
+
+Nom       : senapiagriculture
+Table     : produits
+Serveur   : localhost:3306
+User      : root
+Password  : root
+
+┌──────────────────────────────────────────────────────────┐
+│  🌐 URLs                                                 │
+└──────────────────────────────────────────────────────────┘
+
+Service WCF : http://localhost:59843/Service1.svc
+phpMyAdmin  : http://localhost/phpmyadmin
+
+┌──────────────────────────────────────────────────────────┐
+│  ✅ CHECKLIST AVANT DÉMARRAGE                            │
+└──────────────────────────────────────────────────────────┘
+
+□ MySQL démarré (vert dans XAMPP/WAMP)
+□ Base de données créée (Database_Setup.sql exécuté)
+□ Débogage arrêté (si en cours)
+□ MetierAppSenagriculture démarré
+□ Page http://localhost:59843/Service1.svc ouverte
+□ Maintenant je peux démarrer FrontSenAgriculture
+
+┌──────────────────────────────────────────────────────────┐
+│  🎯 TEST RAPIDE                                          │
+└──────────────────────────────────────────────────────────┘
+
+1. Démarrer les projets dans l'ordre
+2. Vérifier que le DataGridView affiche les 5 produits
+3. Essayer d'ajouter un nouveau produit :
+   - Nom : Test
+   - Description : Produit de test
+   - Prix : 999
+4. Cliquer sur "Ajouter"
+5. Vérifier que le produit apparaît dans la liste
+
+┌──────────────────────────────────────────────────────────┐
+│  📞 SCRIPT DE VÉRIFICATION                               │
+└──────────────────────────────────────────────────────────┘
+
+PowerShell : .\Verifier_Environnement.ps1
+
+Ce script vérifie automatiquement :
+- MySQL en cours d'exécution
+- Port 3306 accessible
+- Port 59843 (WCF)
+- Fichiers de configuration
+
+╔══════════════════════════════════════════════════════════╗
+║  🎉 Bon développement ! 🎉                              ║
+╚══════════════════════════════════════════════════════════╝

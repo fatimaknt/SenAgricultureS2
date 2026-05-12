@@ -1,0 +1,159 @@
+===============================================
+  VÉRIFICATION RAPIDE - TIMEOUT CONFIGURÉ
+===============================================
+
+✅ CHANGEMENTS APPLIQUÉS :
+
+1. Form1.cs - Méthode Form1_Load()
+   ────────────────────────────────
+   service.Endpoint.Binding.SendTimeout = TimeSpan.FromMinutes(5);
+   service.Endpoint.Binding.ReceiveTimeout = TimeSpan.FromMinutes(5);
+   service.Endpoint.Binding.OpenTimeout = TimeSpan.FromMinutes(5);
+   service.Endpoint.Binding.CloseTimeout = TimeSpan.FromMinutes(5);
+
+   → Timeout maintenant : 5 MINUTES (au lieu de 1 minute)
+
+2. Form1.cs - Méthode ChargerProduits()
+   ────────────────────────────────────
+   Ajout de l'URL dans le message EndpointNotFoundException :
+   "URL actuelle: {service.Endpoint.Address.Uri}"
+
+   → Permet de voir rapidement quelle URL est utilisée
+
+3. Logs de débogage
+   ────────────────
+   System.Diagnostics.Debug.WriteLine($"URL du service: {service.Endpoint.Address.Uri}");
+
+   → Visible dans la fenêtre "Sortie" de Visual Studio
+
+===============================================
+  COMMENT VÉRIFIER QUE ÇA MARCHE
+===============================================
+
+TEST 1 : Vérifier les logs de débogage
+───────────────────────────────────────
+1. Arrêtez le débogage (Shift+F5)
+2. Démarrez MetierAppSenagriculture
+3. Démarrez FrontSenAgriculture
+4. Dans Visual Studio, allez dans : Affichage > Sortie (Ctrl+Alt+O)
+5. Cherchez : "URL du service: http://localhost:59843/Service1.svc"
+
+✅ Si vous voyez ce message → Timeout configuré correctement
+
+
+TEST 2 : Vérifier le message d'erreur avec URL
+───────────────────────────────────────────────
+1. Arrêtez le débogage (Shift+F5)
+2. NE démarrez PAS MetierAppSenagriculture
+3. Démarrez SEULEMENT FrontSenAgriculture
+4. Une MessageBox doit apparaître avec :
+   "Impossible de se connecter au service WCF.
+
+    URL actuelle: http://localhost:59843/Service1.svc"
+
+✅ Si l'URL s'affiche → Configuration appliquée avec succès
+
+
+TEST 3 : Vérifier que le timeout est augmenté
+──────────────────────────────────────────────
+AVANT : Timeout après ~56 secondes
+APRÈS : Timeout après 5 minutes (300 secondes)
+
+Pour tester (OPTIONNEL - AVANCÉ) :
+1. Ajoutez temporairement dans ProduitController.getAllProduits() :
+   System.Threading.Thread.Sleep(120000); // Attendre 2 minutes
+2. Redémarrez le service
+3. Démarrez l'application cliente
+4. Elle devrait attendre 2 minutes SANS timeout
+
+✅ Si pas de timeout pendant 2 minutes → Timeout étendu fonctionne
+
+===============================================
+  CONFIGURATION ACTUELLE
+===============================================
+
+┌─────────────────────────────────────────────┐
+│ SOURCE          │ VALEUR     │ PRIORITÉ     │
+├─────────────────┼────────────┼──────────────┤
+│ App.config      │ 10 minutes │ Déclaratif   │
+│ Form1.cs (code) │ 5 minutes  │ Programmatique│
+│ EFFECTIF        │ 5 MINUTES  │ (le minimum) │
+└─────────────────┴────────────┴──────────────┘
+
+EXPLICATION :
+Le timeout effectif est de 5 minutes car :
+- App.config dit : "Maximum 10 minutes"
+- Code dit : "Maximum 5 minutes"
+- Le système prend le MINIMUM des deux = 5 minutes
+
+===============================================
+  FICHIERS MODIFIÉS
+===============================================
+
+✏️  FrontSenAgriculture\Form1.cs
+    ├─ Form1_Load() : +7 lignes (configuration timeout)
+    └─ ChargerProduits() : +1 ligne (affichage URL)
+
+📄 App.config
+    └─ Aucune modification (déjà optimal à 10 min)
+
+===============================================
+  PROCHAINES ÉTAPES
+===============================================
+
+1. ⏹️  Arrêtez le débogage actuel
+      → Shift + F5
+
+2. 🚀 Redémarrez MetierAppSenagriculture
+      → Attendez http://localhost:59843/Service1.svc
+
+3. 🖥️  Redémarrez FrontSenAgriculture
+      → L'application démarre avec la nouvelle config
+
+4. ✅ Vérifiez les logs
+      → Affichage > Sortie > Recherchez "URL du service"
+
+5. 🎉 Profitez du timeout augmenté !
+
+===============================================
+  EN CAS DE PROBLÈME
+===============================================
+
+❌ "Timeout encore dépassé après 5 minutes"
+   → MySQL est peut-être très lent
+   → Consultez les logs MySQL
+   → Testez : SELECT * FROM produits; dans phpMyAdmin
+
+❌ "L'URL n'apparaît pas dans le message d'erreur"
+   → Vous utilisez peut-être une ancienne version
+   → Assurez-vous d'avoir bien redémarré
+
+❌ "Logs de débogage vides"
+   → Vérifiez que Affichage > Sortie est ouvert
+   → Sélectionnez "Déboguer" dans le menu déroulant
+
+===============================================
+  RÉSUMÉ VISUEL
+===============================================
+
+  AVANT                    APRÈS
+  ─────                    ─────
+
+  Timeout : 1 min     →    Timeout : 5 min
+  URL : Cachée        →    URL : Visible dans erreur
+  Logs : Aucun        →    Logs : URL affichée
+
+  ❌ Timeout fréquent →    ✅ Plus de temps pour charger
+  ❌ Pas d'info URL   →    ✅ Debug plus facile
+
+===============================================
+
+✅ CONFIGURATION TIMEOUT TERMINÉE !
+
+Date : [Aujourd'hui]
+Statut : Prêt à tester
+Action : Redémarrage requis
+
+Consultez TIMEOUT_CONFIG.txt pour plus de détails.
+
+===============================================

@@ -1,7 +1,0 @@
-C:\Users\kanou\source\repos\AppSenagriculture\MetierAppSenagriculture\bin\MetierAppSenagriculture.dll.config
-C:\Users\kanou\source\repos\AppSenagriculture\MetierAppSenagriculture\bin\MetierAppSenagriculture.dll
-C:\Users\kanou\source\repos\AppSenagriculture\MetierAppSenagriculture\bin\MetierAppSenagriculture.pdb
-C:\Users\kanou\source\repos\AppSenagriculture\MetierAppSenagriculture\obj\Debug\MetierAppSenagriculture.csproj.AssemblyReference.cache
-C:\Users\kanou\source\repos\AppSenagriculture\MetierAppSenagriculture\obj\Debug\MetierAppSenagriculture.csproj.CoreCompileInputs.cache
-C:\Users\kanou\source\repos\AppSenagriculture\MetierAppSenagriculture\obj\Debug\MetierAppSenagriculture.dll
-C:\Users\kanou\source\repos\AppSenagriculture\MetierAppSenagriculture\obj\Debug\MetierAppSenagriculture.pdb
